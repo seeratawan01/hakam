@@ -133,7 +133,7 @@ $(function () {
 
     function sharer() {
 
-        var siteLink = "http://hakam.rocks/";
+        var siteLink = "http://seeratawan.me/hakam/";
         var $ele = $(this);
 
         var duaType = $ele.attr('data-dua-type');
