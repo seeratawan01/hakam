@@ -133,7 +133,7 @@ $(function () {
 
     function sharer() {
 
-        var siteLink = "http://seeratawan.me/hakam/";
+        var siteLink = "http://www.hakam.rocks/";
         var $ele = $(this);
 
         var duaType = $ele.attr('data-dua-type');
@@ -210,10 +210,18 @@ $(function () {
     }
 
     function getImageSize(image_width) {
-        if (screen.width > image_width) {
-            return image_width;
+        if (screen.availHeight >= screen.width) {
+            if (screen.height > image_width) {
+                return image_width;
+            } else {
+                return screen.height;
+            }
         } else {
-            return screen.width;
+            if (screen.width > image_width) {
+                return image_width;
+            } else {
+                return screen.width;
+            }
         }
     }
 
