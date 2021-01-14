@@ -6,6 +6,7 @@ $(function () {
     // Select2 Plugin
     $("#slct").select2({
         width: 'resolve', // need to override the changed default
+        dropdownParent: $('#app')
     });
 
     $("#slct").on('select2:select', function (e) {
@@ -228,7 +229,7 @@ $(function () {
     function activateVegas(images) {
 
         // Vegas Plugin
-        $("body").vegas({
+        $("#vegas").vegas({
             slides: [
                 { src: images[0].full_image + '&w=' + getImageSize(images[0].width) },
                 { src: images[1].full_image + '&w=' + getImageSize(images[1].width) },

@@ -17,114 +17,143 @@
     <script src="./js/lib.min.js" defer></script>
     <script src="https://unpkg.com/axios/dist/axios.min.js" defer></script>
     <script type="module" src="main.js" defer></script>
+
+    <style>
+        body {
+            overflow-x: hidden;
+        }
+
+        #vegas,
+        #main {
+            min-height: 500px;
+            height: 100vh;
+            width: 100vw;
+            position: absolute;
+            top: 0;
+            left: 0;
+            overflow-x: hidden;
+        }
+
+        #main {
+            z-index: 9;
+        }
+
+        #app .select2-container {
+            z-index: 10;
+        }
+    </style>
 </head>
 
-<body style="overflow-x: hidden;">
+<body>
 
-    <div class="preloader">
-        <img width="80" height="80" src="./assets/logo.svg" alt="logo">
-    </div>
+    <div id="vegas"></div>
 
+    <div id="app" style="overflow-x: hidden;">
 
-    <!-- Main -->
-    <div id="main">
-        <div class="main-container">
-            <div class="main-wrapper">
-                <div class="focus">
-                    <!-- <div id="clock" class="time">05:39</div> -->
-                    <div class="emotion-box">
-                        <h2>I'm Feeling</h2>
+        <div class="preloader">
+            <img width="80" height="80" src="./assets/logo.svg" alt="logo">
+        </div>
 
-                        <div class="select">
-                            <select name="slct" id="slct" style="width: 60%">
-                                <option selected disabled>Select Emotion</option>
-                                <option value="anxious">anxious</option>
-                                <option value="anticipation">anticipation</option>
-                                <option value="angry">angry</option>
-                                <option value="aroused">aroused</option>
-                                <option value="confident">confident</option>
-                                <option value="confused">confused</option>
-                                <option value="content">content</option>
-                                <option value="curious">curious</option>
-                                <option value="defeated">defeated</option>
-                                <option value="depressed">depressed</option>
-                                <option value="desire">desire</option>
-                                <option value="desperate">desperate</option>
-                                <option value="determined">determined</option>
-                                <option value="disbelief">disbelief</option>
-                                <option value="doubtful">doubtful</option>
-                                <option value="envious">envious</option>
-                                <option value="grateful">grateful</option>
-                                <option value="guilty">guilty</option>
-                                <option value="happy">happy</option>
-                                <option value="hatred">hatred</option>
-                                <option value="humiliated">humiliated</option>
-                                <option value="hurt">hurt</option>
-                                <option value="impatient">impatient</option>
-                                <option value="indecisive">indecisive</option>
-                                <option value="insecure">insecure</option>
-                                <option value="irritated">irritated</option>
-                                <option value="jealous">jealous</option>
-                                <option value="lazy">lazy</option>
-                                <option value="lonely">lonely</option>
-                                <option value="love">love</option>
-                                <option value="nervous">nervous</option>
-                                <option value="nostalgic">nostalgic</option>
-                                <option value="offended">offended</option>
-                                <option value="overwhelmed">overwhelmed</option>
-                                <option value="peaceful">peaceful</option>
-                                <option value="rage">rage</option>
-                                <option value="regretful">regretful</option>
-                                <option value="sad">sad</option>
-                                <option value="satisfied">satisfied</option>
-                                <option value="uncertain">uncertain</option>
-                                <option value="uneasy">uneasy</option>
-                                <option value="weak">weak</option>
-                            </select>
+        <!-- Main -->
+        <div id="main">
+            <div class="main-container">
+                <div class="main-wrapper">
+                    <div class="focus">
+                        <!-- <div id="clock" class="time">05:39</div> -->
+                        <div class="emotion-box">
+                            <h2>I'm Feeling</h2>
+
+                            <div class="select">
+                                <select name="slct" id="slct" style="width: 60%">
+                                    <option selected disabled>Select Emotion</option>
+                                    <option value="anxious">anxious</option>
+                                    <option value="anticipation">anticipation</option>
+                                    <option value="angry">angry</option>
+                                    <option value="aroused">aroused</option>
+                                    <option value="confident">confident</option>
+                                    <option value="confused">confused</option>
+                                    <option value="content">content</option>
+                                    <option value="curious">curious</option>
+                                    <option value="defeated">defeated</option>
+                                    <option value="depressed">depressed</option>
+                                    <option value="desire">desire</option>
+                                    <option value="desperate">desperate</option>
+                                    <option value="determined">determined</option>
+                                    <option value="disbelief">disbelief</option>
+                                    <option value="doubtful">doubtful</option>
+                                    <option value="envious">envious</option>
+                                    <option value="grateful">grateful</option>
+                                    <option value="guilty">guilty</option>
+                                    <option value="happy">happy</option>
+                                    <option value="hatred">hatred</option>
+                                    <option value="humiliated">humiliated</option>
+                                    <option value="hurt">hurt</option>
+                                    <option value="impatient">impatient</option>
+                                    <option value="indecisive">indecisive</option>
+                                    <option value="insecure">insecure</option>
+                                    <option value="irritated">irritated</option>
+                                    <option value="jealous">jealous</option>
+                                    <option value="lazy">lazy</option>
+                                    <option value="lonely">lonely</option>
+                                    <option value="love">love</option>
+                                    <option value="nervous">nervous</option>
+                                    <option value="nostalgic">nostalgic</option>
+                                    <option value="offended">offended</option>
+                                    <option value="overwhelmed">overwhelmed</option>
+                                    <option value="peaceful">peaceful</option>
+                                    <option value="rage">rage</option>
+                                    <option value="regretful">regretful</option>
+                                    <option value="sad">sad</option>
+                                    <option value="satisfied">satisfied</option>
+                                    <option value="uncertain">uncertain</option>
+                                    <option value="uneasy">uneasy</option>
+                                    <option value="weak">weak</option>
+                                </select>
+                            </div>
                         </div>
+
+                        <!-- <button id="api">Click</button> -->
+
+
+                        <div id="slider">
+                            <a href="#right" class="control_next hide"><i class="lni lni-angle-double-right"></i></a>
+                            <a href="#left" class="control_prev hide"><i class="lni lni-angle-double-left"></i></a>
+                            <ul>
+                                <li class="prayer">
+                                    <span class="dua-title">Find a Dua For Every Emotion You feel</span>
+
+                                    <span class="dua-subtitle">These duas will help you tackle the different emotions
+                                        you
+                                        go through in life.</span>
+                                    <span class="share">
+                                        <i data-sharer="facebook" class="lni lni-facebook-original"></i>
+                                        <i data-sharer="twitter" class="lni lni-twitter-original"></i>
+                                        <i data-sharer="linkedin" class="lni lni-linkedin-original"></i>
+                                    </span>
+                                </li>
+
+
+                            </ul>
+                        </div>
+
+
+                    </div>
+                </div>
+
+                <!-- Settings -->
+                <div class="shoutout">
+                    <div class="shoutout-btn">
+                        <i class="lni lni-heart-filled"></i>
+                    </div>
+                    <div class="images-credit">
+                        <span><a href="#" target="_blank"></a></span>
+                        <span></span>
                     </div>
 
-                    <!-- <button id="api">Click</button> -->
-
-
-                    <div id="slider">
-                        <a href="#right" class="control_next hide"><i class="lni lni-angle-double-right"></i></a>
-                        <a href="#left" class="control_prev hide"><i class="lni lni-angle-double-left"></i></a>
-                        <ul>
-                            <li class="prayer">
-                                <span class="dua-title">Find a Dua For Every Emotion You feel</span>
-
-                                <span class="dua-subtitle">These duas will help you tackle the different emotions you
-                                    go through in life.</span>
-                                <span class="share">
-                                    <i data-sharer="facebook" class="lni lni-facebook-original"></i>
-                                    <i data-sharer="twitter" class="lni lni-twitter-original"></i>
-                                    <i data-sharer="linkedin" class="lni lni-linkedin-original"></i>
-                                </span>
-                            </li>
-
-
-                        </ul>
-                    </div>
-
-
                 </div>
-            </div>
-
-            <!-- Settings -->
-            <div class="shoutout">
-                <div class="shoutout-btn">
-                    <i class="lni lni-heart-filled"></i>
-                </div>
-                <div class="images-credit">
-                    <span><a href="#" target="_blank"></a></span>
-                    <span></span>
-                </div>
-
             </div>
         </div>
     </div>
-
 
 </body>
 
