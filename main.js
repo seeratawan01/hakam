@@ -209,14 +209,22 @@ $(function () {
 
     }
 
+    function getImageSize(image_width) {
+        if (screen.width > image_width) {
+            return image_width;
+        } else {
+            return screen.width;
+        }
+    }
+
     function activateVegas(images) {
 
         // Vegas Plugin
         $("body").vegas({
             slides: [
-                { src: images[0].full_image },
-                { src: images[1].full_image },
-                { src: images[2].full_image }
+                { src: images[0].full_image + '&w=' + getImageSize(images[0].width) },
+                { src: images[1].full_image + '&w=' + getImageSize(images[1].width) },
+                { src: images[2].full_image + '&w=' + getImageSize(images[2].width) }
             ],
             delay: 12000,
             shuffle: true,
